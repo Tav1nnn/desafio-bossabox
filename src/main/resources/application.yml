@@ -1,6 +1,14 @@
 server:
   port: 3000
 spring:
+  flyway:
+    locations: classpath:db/migration
+    enabled: true
+    baseline-on-migrate: true
+    url: jdbc:postgresql://localhost:5430/
+    schemas: desafiobossabox
+    user: postgres
+    password: 123
   datasource:
     url: jdbc:postgresql://localhost:5430/desafiobossabox
     username: postgres
