@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+  bd:
+    image: 'postgres:16.0-alpine3.18'
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=desafiobossabox
+    ports:
+      - 5430:5432
+
+  desafio-bossabox:
+    image: tav1nnn/desafio-bossabox
+    restart: always
+    build:
+      context: .
+    environment:
+      TZ: America/Sao_Paulo
+      SPRING.DATASOURCE.URL: jdbc:postgresql://bd:5432/desafiobossabox
+      SPRING.DATASOURCE.USERNAME: postgres
+      SPRING.DATASOURCE.PASSWORD: 123
+      SPRING.JPA.HIBERNATE.DDL-AUTO: none
+    ports:
+      - 3000:3000
+    depends_on:
+      - bd
