@@ -1,2 +1,23 @@
 file:
   upload-dir: /home/runner/work/desafio-bossabox/UploadDir
+server:
+  port: 8080
+spring:
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    user: postgres
+    password: 123
+    baseline-description: "init"
+    baseline-version: 0
+  datasource:
+    url: jdbc:postgresql://localhost:5430/desafiobossabox
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
