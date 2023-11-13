@@ -2,13 +2,12 @@ server:
   port: 3000
 spring:
   flyway:
-    locations: classpath:db/migration
     enabled: true
     baseline-on-migrate: true
-    url: jdbc:postgresql://localhost:5430/
-    schemas: desafiobossabox
     user: postgres
     password: 123
+    baseline-description: "init"
+    baseline-version: 0
   datasource:
     url: jdbc:postgresql://localhost:5430/desafiobossabox
     username: postgres
@@ -16,8 +15,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: false

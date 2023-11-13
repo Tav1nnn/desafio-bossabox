@@ -1,8 +1,7 @@
-version: '3.5'
-
+version: "3.5"
 services:
   bd:
-    image: 'postgres:16.0-alpine3.18'
+    image: "postgres:16.0-alpine3.18"
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -21,7 +20,7 @@ services:
       SPRING.DATASOURCE.URL: jdbc:postgresql://bd:5432/desafiobossabox
       SPRING.DATASOURCE.USERNAME: postgres
       SPRING.DATASOURCE.PASSWORD: 123
-      SPRING.JPA.HIBERNATE.DDL-AUTO: none
+      SPRING.JPA.HIBERNATE.DDL-AUTO: validate
     ports:
       - 3000:3000
     depends_on:
