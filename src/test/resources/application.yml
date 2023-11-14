@@ -11,7 +11,7 @@ spring:
     baseline-description: "init"
     baseline-version: 0
   datasource:
-    url: jdbc:postgresql://localhost:5430/desafiobossabox
+    url: jdbc:postgresql://localhost:5420/desafiobossaboxtest
     username: postgres
     password: 123
     driver-class-name: org.postgresql.Driver

@@ -6,7 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "tools")
 @Data
@@ -34,5 +36,5 @@ public class ToolEntity implements Serializable {
             joinColumns = {@JoinColumn(name = "tool_id")},
             inverseJoinColumns = {@JoinColumn(name = "tag_id")}
     )
-    private List<TagEntity> tag;
+    private Set<TagEntity> tagEntitySet = new HashSet<>();
 }

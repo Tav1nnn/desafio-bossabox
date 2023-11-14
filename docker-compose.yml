@@ -10,9 +10,17 @@ services:
     ports:
       - 5430:5432
 
+  bd-test:
+    image: "postgres:16.0-alpine3.18"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=desafiobossaboxtest
+    ports:
+      - 5420:5432
+
   desafio-bossabox:
     image: tav1nnn/desafio-bossabox
-    restart: always
     build:
       context: .
     environment:
