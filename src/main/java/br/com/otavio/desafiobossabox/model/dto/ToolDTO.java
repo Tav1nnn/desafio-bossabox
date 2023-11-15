@@ -13,11 +13,11 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@@JsonPropertyOrder({"id", "title", "link", "description", "tags"})
+@JsonPropertyOrder({"id", "title", "link", "description", "tags"})
 public class ToolDTO {
 
     @JsonProperty("id")
-    private Long id_tool;
+    private Long idTool;
     private String title;
     private String link;
     private String description;
