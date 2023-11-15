@@ -1,9 +1,7 @@
 package br.com.otavio.desafiobossabox.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -14,6 +12,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class ToolEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -21,12 +20,15 @@ public class ToolEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @Column(nullable = false)
     private String title;
 
+    @NonNull
     @Column(nullable = false)
     private String link;
 
+    @NonNull
     @Column(nullable = false)
     private String description;
 

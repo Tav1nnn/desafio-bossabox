@@ -1,7 +1,9 @@
 package br.com.otavio.desafiobossabox.testsRepositories;
 
 import br.com.otavio.desafiobossabox.entities.TagEntity;
+import br.com.otavio.desafiobossabox.entities.ToolEntity;
 import br.com.otavio.desafiobossabox.repositories.TagRepository;
+import br.com.otavio.desafiobossabox.repositories.ToolRepository;
 import br.com.otavio.desafiobossabox.util.TagUtil;
 import br.com.otavio.desafiobossabox.util.ToolUtil;
 import org.junit.jupiter.api.*;
@@ -15,10 +17,10 @@ import java.util.Optional;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class TagRepositoryTest {
+public class ToolRepositoryTest {
 
     @Autowired
-    private TagRepository tagRepository;
+    private ToolRepository toolRepository;
 
     private Long validId;
     private Long invalidId;
@@ -34,42 +36,39 @@ public class TagRepositoryTest {
     @Test
     @Order(1)
     public void testSaveTag () {
-        TagEntity tagEntity = TagUtil.createTag();
-        tagEntity.setId(null);
+        ToolEntity toolEntity = ToolUtil.createTool();
+        toolEntity.setId(null);
 
-        tagEntity = tagRepository.save(tagEntity);
+        var toolEntitySave = toolRepository.save(toolEntity);
 
-        Assertions.assertNotNull(tagEntity.getId());
-        Assertions.assertEquals(1L, tagEntity.getId());
+        Assertions.assertNotNull(toolEntitySave.getId());
+        Assertions.assertEquals(1L, toolEntitySave.getTagEntitySet().size());
+        Assertions.assertEquals(1L, toolEntitySave.getId());
     }
 
     @Test
     @Order(2)
     public void testFindByIdValidId () {
         save();
-        Optional<TagEntity> tag = tagRepository.findById(validId);
+        Optional<ToolEntity> tool = toolRepository.findById(validId);
 
-        Assertions.assertNotNull(tag);
+        Assertions.assertNotNull(tool);
     }
 
     @Test
     @Order(3)
     public void testFindByIdInvalidId () {
-        Optional<TagEntity> tag = tagRepository.findById(invalidId);
+        save();
+        Optional<ToolEntity> tool = toolRepository.findById(invalidId);
 
-        Assertions.assertEquals(Optional.empty(), tag);
-
+        Assertions.assertEquals(Optional.empty(), tool);
     }
 
     @Test
     @Order(4)
     public void testFindAll () {
         save();
-        List<TagEntity> list = tagRepository.findAll();
-
-        for(TagEntity entidade : list) {
-            System.out.println("nome" + entidade.getName());
-        }
+        List<ToolEntity> list = toolRepository.findAll();
 
         Assertions.assertNotNull(list);
         Assertions.assertEquals(1, list.size());
@@ -79,7 +78,7 @@ public class TagRepositoryTest {
     @Order(5)
     public void testCount () {
         save();
-        Long count = tagRepository.count();
+        Long count = toolRepository.count();
 
         Assertions.assertNotNull(count);
         Assertions.assertEquals(conutTotalTag, count);
@@ -88,29 +87,27 @@ public class TagRepositoryTest {
     @Test
     @Order(6)
     public void testEdit () {
-        save();
-        TagEntity tagEntity = new TagEntity(1L, "newName");
+       save();
+       ToolEntity toolEntity = ToolUtil.createTool();
+       toolEntity.setTitle("newTitle");
 
-        tagEntity = tagRepository.save(tagEntity);
+        var toolUpdate = toolRepository.save(toolEntity);
 
-        Assertions.assertNotNull(tagEntity);
-        Assertions.assertEquals("newName", tagEntity.getName());
+        Assertions.assertNotNull(toolUpdate);
+        Assertions.assertEquals("newTitle", toolUpdate.getTitle());
     }
 
     @Test
     @Order(7)
     public void testDelete () {
         save();
-        tagRepository.delete(TagUtil.createTag());
+        toolRepository.delete(ToolUtil.createTool());
 
-        Assertions.assertFalse(tagRepository.existsById(validId));
+        Assertions.assertFalse(toolRepository.existsById(validId));
     }
 
-
     private void save (){
-        TagEntity tagEntity = TagUtil.createTag();
-        tagEntity.setId(null);
-        tagRepository.save(tagEntity);
-
+        ToolEntity toolEntity = ToolUtil.createTool();
+        toolRepository.save(toolEntity);
     }
 }
