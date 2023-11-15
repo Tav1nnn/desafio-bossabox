@@ -4,20 +4,16 @@ server:
   port: 8080
 spring:
   flyway:
-    enabled: true
-    baseline-on-migrate: true
-    user: postgres
-    password: 123
-    baseline-description: "init"
-    baseline-version: 0
+    enabled: false
   datasource:
+    initialization-mode: never
     url: jdbc:postgresql://localhost:5420/desafiobossaboxtest
     username: postgres
     password: 123
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
