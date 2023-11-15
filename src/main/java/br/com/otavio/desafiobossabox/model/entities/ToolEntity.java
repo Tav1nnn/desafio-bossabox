@@ -1,11 +1,10 @@
-package br.com.otavio.desafiobossabox.entities;
+package br.com.otavio.desafiobossabox.model.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity(name = "tools")

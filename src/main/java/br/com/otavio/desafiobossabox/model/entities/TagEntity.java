@@ -1,4 +1,4 @@
-package br.com.otavio.desafiobossabox.entities;
+package br.com.otavio.desafiobossabox.model.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,12 +1,9 @@
 package br.com.otavio.desafiobossabox.testsEntity;
 
-import br.com.otavio.desafiobossabox.entities.TagEntity;
-import br.com.otavio.desafiobossabox.entities.ToolEntity;
+import br.com.otavio.desafiobossabox.model.entities.TagEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 

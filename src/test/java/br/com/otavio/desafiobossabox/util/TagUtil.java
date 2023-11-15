@@ -1,6 +1,6 @@
 package br.com.otavio.desafiobossabox.util;
 
-import br.com.otavio.desafiobossabox.entities.TagEntity;
+import br.com.otavio.desafiobossabox.model.entities.TagEntity;
 
 public class TagUtil {
     public static TagEntity createTag() {

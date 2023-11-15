@@ -1,9 +1,8 @@
 package br.com.otavio.desafiobossabox.testsRepositories;
 
-import br.com.otavio.desafiobossabox.entities.TagEntity;
+import br.com.otavio.desafiobossabox.model.entities.TagEntity;
 import br.com.otavio.desafiobossabox.repositories.TagRepository;
 import br.com.otavio.desafiobossabox.util.TagUtil;
-import br.com.otavio.desafiobossabox.util.ToolUtil;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
