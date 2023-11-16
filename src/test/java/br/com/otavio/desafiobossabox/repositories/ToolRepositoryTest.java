@@ -1,7 +1,6 @@
-package br.com.otavio.desafiobossabox.testsRepositories;
+package br.com.otavio.desafiobossabox.repositories;
 
 import br.com.otavio.desafiobossabox.model.entities.ToolEntity;
-import br.com.otavio.desafiobossabox.repositories.ToolRepository;
 import br.com.otavio.desafiobossabox.util.ToolUtil;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;

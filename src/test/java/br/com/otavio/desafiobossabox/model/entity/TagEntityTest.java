@@ -1,18 +1,22 @@
-package br.com.otavio.desafiobossabox.testsModel.testsEntity;
+package br.com.otavio.desafiobossabox.model.entity;
 
 import br.com.otavio.desafiobossabox.model.entities.TagEntity;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class ToolEntityTest {
+public class TagEntityTest {
 
     @Test
     public void testGettersAndSetters() {
+        TagEntity tagEntity = new TagEntity();
+        tagEntity.setId(1L);
+        tagEntity.setName("tag");
+
+        assertNotNull(tagEntity);
+        assertEquals(tagEntity.getId(), 1L);
+        assertEquals(tagEntity.getName(), "tag");
 
     }
 

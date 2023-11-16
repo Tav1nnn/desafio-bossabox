@@ -1,8 +1,7 @@
-package br.com.otavio.desafiobossabox.testsModel.testsMapper;
+package br.com.otavio.desafiobossabox.model.mapper;
 
 import br.com.otavio.desafiobossabox.model.dto.ToolDTO;
 import br.com.otavio.desafiobossabox.model.entities.ToolEntity;
-import br.com.otavio.desafiobossabox.model.mapper.ToolMapper;
 import br.com.otavio.desafiobossabox.util.ToolUtil;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;

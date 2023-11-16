@@ -1,4 +1,4 @@
-package br.com.otavio.desafiobossabox.testsService.testsValidations;
+package br.com.otavio.desafiobossabox.service.validations;
 
 import br.com.otavio.desafiobossabox.services.validations.LinkValidator;
 import org.junit.jupiter.api.*;
