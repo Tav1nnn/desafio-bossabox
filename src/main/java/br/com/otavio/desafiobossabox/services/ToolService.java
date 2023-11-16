@@ -14,9 +14,7 @@ public class ToolService {
 
     @Autowired
     private TagService tagService;
-
-    @Autowired
-    private LinkValidator linkValidator;
+    
 
     public void newTool (ToolDTO toolDTO) {
 

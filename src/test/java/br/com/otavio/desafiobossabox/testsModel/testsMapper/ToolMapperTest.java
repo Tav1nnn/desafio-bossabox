@@ -1,4 +1,4 @@
-package br.com.otavio.desafiobossabox.testsMapper;
+package br.com.otavio.desafiobossabox.testsModel.testsMapper;
 
 import br.com.otavio.desafiobossabox.model.dto.ToolDTO;
 import br.com.otavio.desafiobossabox.model.entities.ToolEntity;

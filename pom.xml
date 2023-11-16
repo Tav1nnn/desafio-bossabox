@@ -17,7 +17,7 @@
 		<java.version>17</java.version>
 		<mapper.version>1.5.3.Final</mapper.version>
 		<lombok.version>1.18.30</lombok.version>
-
+		<httpcomponents.version>4.5.13</httpcomponents.version>
 	</properties>
 
 	<dependencies>
@@ -61,6 +61,14 @@
 			<version>${lombok.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>${httpcomponents.version}</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -1,4 +1,4 @@
-package br.com.otavio.desafiobossabox.testsEntity;
+package br.com.otavio.desafiobossabox.testsModel.testsEntity;
 
 import br.com.otavio.desafiobossabox.model.entities.TagEntity;
 import static org.junit.jupiter.api.Assertions.*;

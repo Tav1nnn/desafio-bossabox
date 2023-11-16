@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity(name = "tools")
+@Entity(name = "tool")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,7 +33,7 @@ public class ToolEntity implements Serializable {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "tag_tools",
+            name = "tag_tool",
             joinColumns = {@JoinColumn(name = "tool_id")},
             inverseJoinColumns = {@JoinColumn(name = "tag_id")}
     )

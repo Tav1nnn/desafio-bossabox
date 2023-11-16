@@ -1,7 +1,7 @@
 package br.com.otavio.desafiobossabox.controllers.exceptions.handler;
 
 import br.com.otavio.desafiobossabox.controllers.exceptions.model.StandardError;
-import br.com.otavio.desafiobossabox.services.validations.exceptions.InvalidLinkException;
+import br.com.otavio.desafiobossabox.services.exceptions.InvalidLinkException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
