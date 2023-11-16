@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +15,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonPropertyOrder({"id", "title", "link", "description", "tags"})
-public class ToolDTO {
+public class ToolDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty("id")
     private Long idTool;
