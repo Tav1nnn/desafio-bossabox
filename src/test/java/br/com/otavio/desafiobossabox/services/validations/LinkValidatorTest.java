@@ -1,8 +1,6 @@
-package br.com.otavio.desafiobossabox.service.validations;
+package br.com.otavio.desafiobossabox.services.validations;
 
-import br.com.otavio.desafiobossabox.services.validations.LinkValidator;
 import org.junit.jupiter.api.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
