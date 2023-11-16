@@ -11,4 +11,11 @@ public class TagUtil {
     public static TagDTO createTagDTO () {
         return new TagDTO(1L, "api");
     }
+
+    public static TagEntity saveTagEntity () {
+        TagEntity tagEntity = new TagEntity();
+        tagEntity.setName("api");
+
+        return tagEntity;
+    }
 }

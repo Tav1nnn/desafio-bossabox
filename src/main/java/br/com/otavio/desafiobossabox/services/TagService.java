@@ -28,7 +28,7 @@ public class TagService {
         return tagMapper.toTagDTO(tagEntity);
     }
 
-    protected TagDTO creteTag (String tagName) {
+    protected TagDTO createTag (String tagName) {
         TagEntity tagEntity = new TagEntity();
         tagEntity.setName(tagName);
 
