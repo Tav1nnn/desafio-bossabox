@@ -5,10 +5,14 @@ import br.com.otavio.desafiobossabox.model.dto.ToolDTO;
 import br.com.otavio.desafiobossabox.model.entities.TagEntity;
 import br.com.otavio.desafiobossabox.model.entities.ToolEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface TagMapper {
 
-    ToolDTO toTagDTO(TagEntity tagEntity);
-    ToolEntity toTagEntity(TagDTO tagDTO);
+
+    @Mapping(source = "id", target = "id")
+    TagDTO toTagDTO(TagEntity tagEntity);
+    @Mapping(source = "id", target = "id")
+    TagEntity toTagEntity(TagDTO tagDTO);
 }
