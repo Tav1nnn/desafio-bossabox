@@ -22,11 +22,16 @@ public class TagRepositoryTest {
     private Long invalidId;
     private Long conutTotalTag;
 
+    private String validName;
+    private String invalidName;
+
     @BeforeEach
     void setup() {
         validId = 1L;
         invalidId = 2L;
         conutTotalTag = 1L;
+        validName = "api";
+        invalidName = "invalidName";
     }
 
     @Test
@@ -43,7 +48,7 @@ public class TagRepositoryTest {
 
     @Test
     @Order(2)
-    public void testFindByIdValidId () {
+    public void testFindByIdWithValidId () {
         save();
         Optional<TagEntity> tag = tagRepository.findById(validId);
 
@@ -52,7 +57,7 @@ public class TagRepositoryTest {
 
     @Test
     @Order(3)
-    public void testFindByIdInvalidId () {
+    public void testFindByIdWithInvalidId () {
         Optional<TagEntity> tag = tagRepository.findById(invalidId);
 
         Assertions.assertEquals(Optional.empty(), tag);
@@ -104,6 +109,35 @@ public class TagRepositoryTest {
         Assertions.assertFalse(tagRepository.existsById(validId));
     }
 
+    @Test
+    @Order(8)
+    public void testExistsByNameWithValidName () {
+        save();
+        Assertions.assertTrue(tagRepository.existsByName(validName));
+    }
+
+    @Test
+    @Order(9)
+    public void testExistsByNameWithInvalidName () {
+        save();
+        Assertions.assertFalse(tagRepository.existsByName(invalidName));
+    }
+
+    @Test
+    @Order(10)
+    public void testFindByNameWithValidName () {
+        save();
+        Optional<TagEntity> tag = tagRepository.findByName(validName);
+        Assertions.assertTrue(tag.isPresent());
+    }
+
+    @Test
+    @Order(11)
+    public void testFindByNameWithInvalidName () {
+        save();
+        Optional<TagEntity> tag = tagRepository.findByName(invalidName);
+        Assertions.assertEquals(Optional.empty(), tag);
+    }
 
     private void save (){
         TagEntity tagEntity = TagUtil.createTag();
