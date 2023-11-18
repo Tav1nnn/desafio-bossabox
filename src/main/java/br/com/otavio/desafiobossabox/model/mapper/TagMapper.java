@@ -7,6 +7,8 @@ import br.com.otavio.desafiobossabox.model.entities.ToolEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.Set;
+
 @Mapper(componentModel = "spring")
 public interface TagMapper {
 
