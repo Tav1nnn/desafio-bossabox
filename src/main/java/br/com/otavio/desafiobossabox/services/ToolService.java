@@ -47,24 +47,15 @@ public class ToolService {
     }
 
     public List<ToolDTO> findAll () {
-
-        List<ToolEntity> toolEntityList = toolRepository.findAll();
-
-        List<ToolDTO> toolDTOList = new ArrayList<>();
-
-        for (ToolEntity toolEntity : toolEntityList) {
-
-            ToolDTO toolDTO = toolMapper.toToolDTO(toolEntity);
-
-            for (TagEntity tagEntity : toolEntity.getTagEntitySet()) {
-                toolDTO.getTags().add(tagEntity.getName());
-            }
-
-            toolDTOList.add(toolDTO);
-        }
-
-        return toolDTOList;
+        return  getToolDTOS(toolRepository.findAll());
     }
+
+    public List<ToolDTO> findByTag (String tagName) {
+        TagDTO tagDTO = tagService.findByName(tagName);
+
+        return getToolDTOS(toolRepository.findByTag(tagMapper.toTagEntity(tagDTO)));
+    }
+
     private void linkIsValid (String link) {
         try {
             if(!LinkValidator.isValid(link)){
@@ -92,5 +83,21 @@ public class ToolService {
         }
 
         return newToolDTO;
+    }
+
+    private List<ToolDTO> getToolDTOS(List<ToolEntity> toolEntityList) {
+        List<ToolDTO> toolDTOList = new ArrayList<>();
+
+        for (ToolEntity toolEntity : toolEntityList) {
+
+            ToolDTO toolDTO = toolMapper.toToolDTO(toolEntity);
+
+            for (TagEntity tagEntity : toolEntity.getTagEntitySet()) {
+                toolDTO.getTags().add(tagEntity.getName());
+            }
+
+            toolDTOList.add(toolDTO);
+        }
+        return toolDTOList;
     }
 }
