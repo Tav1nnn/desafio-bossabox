@@ -49,6 +49,7 @@ public class ToolServiceTest {
         Mockito.when(tagMapper.toTagEntity(TagUtil.createTagDTO())).thenReturn(TagUtil.createTag());
         Mockito.when(toolMapper.toToolDTO(ToolUtil.saveTool())).thenReturn(ToolUtil.saveToolDTO());
         Mockito.when(toolMapper.toToolEntity(ToolUtil.createToolDTO())).thenReturn(ToolUtil.createTool());
+        Mockito.when(toolRepository.findAll()).thenReturn(ToolUtil.toolEntityList());
     }
 
     @Test
@@ -58,4 +59,10 @@ public class ToolServiceTest {
 
         Assertions.assertEquals(expected, result);
     }
+
+    @Test
+    public void testFindAll () {
+        Assertions.assertEquals(ToolUtil.toolDTOList(), toolService.findAll());
+    }
+
 }

@@ -4,7 +4,9 @@ import br.com.otavio.desafiobossabox.model.dto.ToolDTO;
 import br.com.otavio.desafiobossabox.model.entities.TagEntity;
 import br.com.otavio.desafiobossabox.model.entities.ToolEntity;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ToolUtil {
@@ -34,5 +36,19 @@ public class ToolUtil {
         list.add("api");
 
         return new ToolDTO(1L, "notion", "https://www.google.com.br", "notion e bom", list);
+    }
+
+    public static List<ToolDTO> toolDTOList () {
+        List<ToolDTO> list = new ArrayList<>();
+        list.add(saveToolDTO());
+
+        return list;
+    }
+
+    public static List<ToolEntity> toolEntityList () {
+        List<ToolEntity> list = new ArrayList<>();
+        list.add(saveTool());
+
+        return list;
     }
 }
