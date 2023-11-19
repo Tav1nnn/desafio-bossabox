@@ -13,6 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class ToolService {
@@ -41,6 +44,26 @@ public class ToolService {
         ToolEntity newtoolEntity = toolRepository.save(toolEntity);
 
         return returnToolDto(newtoolEntity);
+    }
+
+    public List<ToolDTO> findAll () {
+
+        List<ToolEntity> toolEntityList = toolRepository.findAll();
+
+        List<ToolDTO> toolDTOList = new ArrayList<>();
+
+        for (ToolEntity toolEntity : toolEntityList) {
+
+            ToolDTO toolDTO = toolMapper.toToolDTO(toolEntity);
+
+            for (TagEntity tagEntity : toolEntity.getTagEntitySet()) {
+                toolDTO.getTags().add(tagEntity.getName());
+            }
+
+            toolDTOList.add(toolDTO);
+        }
+
+        return toolDTOList;
     }
     private void linkIsValid (String link) {
         try {
