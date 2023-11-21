@@ -8,6 +8,7 @@ import br.com.otavio.desafiobossabox.model.mapper.TagMapper;
 import br.com.otavio.desafiobossabox.model.mapper.ToolMapper;
 import br.com.otavio.desafiobossabox.repositories.ToolRepository;
 import br.com.otavio.desafiobossabox.services.exceptions.InvalidLinkException;
+import br.com.otavio.desafiobossabox.services.exceptions.ResourceNotFoundException;
 import br.com.otavio.desafiobossabox.services.validations.LinkValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,7 +54,14 @@ public class ToolService {
     public List<ToolDTO> findByTag (String tagName) {
         TagDTO tagDTO = tagService.findByName(tagName);
 
-        return getToolDTOS(toolRepository.findByTag(tagMapper.toTagEntity(tagDTO)));
+        return getToolDTOS(toolRepository.findByTagEntitySet(tagMapper.toTagEntity(tagDTO)));
+    }
+
+    public void delete (Long id) {
+        ToolEntity toolEntity = toolRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("id " + id + " not found"));
+
+        toolRepository.delete(toolEntity);
     }
 
     private void linkIsValid (String link) {

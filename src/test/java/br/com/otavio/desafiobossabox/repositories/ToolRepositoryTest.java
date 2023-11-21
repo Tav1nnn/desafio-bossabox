@@ -1,6 +1,7 @@
 package br.com.otavio.desafiobossabox.repositories;
 
 import br.com.otavio.desafiobossabox.model.entities.ToolEntity;
+import br.com.otavio.desafiobossabox.util.TagUtil;
 import br.com.otavio.desafiobossabox.util.ToolUtil;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -100,6 +101,13 @@ public class ToolRepositoryTest {
         toolRepository.delete(ToolUtil.createTool());
 
         Assertions.assertFalse(toolRepository.existsById(validId));
+    }
+
+    @Test
+    @Order(8)
+    public void testFindByTag () {
+        save();
+        Assertions.assertEquals(ToolUtil.toolEntityList(), toolRepository.findByTagEntitySet(TagUtil.createTag()));
     }
 
     private void save (){

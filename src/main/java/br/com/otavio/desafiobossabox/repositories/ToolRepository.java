@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ToolRepository extends JpaRepository<ToolEntity, Long> {
-    List<ToolEntity> findByTag(TagEntity tagEntity);
+    List<ToolEntity> findByTagEntitySet(TagEntity tag);
 }
