@@ -22,9 +22,12 @@ import java.util.List;
 @RequestMapping(value = "/tools")
 @Tag(name = "Tool Management", description = "APIs for managing tools")
 public class ToolController {
+    private final ToolService toolService;
 
-    @Autowired
-    private ToolService toolService;
+    public ToolController(ToolService toolService) {
+        this.toolService = toolService;
+    }
+
 
     @GetMapping()
     @Operation(summary = "find by tag or all",description = "Get tools by tag or all tools")

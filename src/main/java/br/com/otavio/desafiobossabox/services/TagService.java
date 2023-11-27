@@ -5,17 +5,18 @@ import br.com.otavio.desafiobossabox.model.entities.TagEntity;
 import br.com.otavio.desafiobossabox.model.mapper.TagMapper;
 import br.com.otavio.desafiobossabox.repositories.TagRepository;
 import br.com.otavio.desafiobossabox.services.exceptions.ResourceNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TagService {
 
-    @Autowired
-    private TagRepository tagRepository;
+    private final TagRepository tagRepository;
+    private final TagMapper tagMapper;
 
-    @Autowired
-    private TagMapper tagMapper;
+    public TagService(TagRepository tagRepository, TagMapper tagMapper) {
+        this.tagRepository = tagRepository;
+        this.tagMapper = tagMapper;
+    }
 
     protected boolean existsByName (String tagName) {
         return tagRepository.existsByName(tagName);

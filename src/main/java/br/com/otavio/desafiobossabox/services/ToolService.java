@@ -10,28 +10,25 @@ import br.com.otavio.desafiobossabox.repositories.ToolRepository;
 import br.com.otavio.desafiobossabox.services.exceptions.InvalidLinkException;
 import br.com.otavio.desafiobossabox.services.exceptions.ResourceNotFoundException;
 import br.com.otavio.desafiobossabox.services.validations.LinkValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
 @Service
 public class ToolService {
 
-    @Autowired
-    private ToolRepository toolRepository;
+    private final ToolRepository toolRepository;
+    private final TagService tagService;
+    private final ToolMapper toolMapper;
+    private final TagMapper tagMapper;
 
-    @Autowired
-    private TagService tagService;
-
-    @Autowired
-    private ToolMapper toolMapper;
-
-    @Autowired
-    private TagMapper tagMapper;
+    public ToolService(ToolRepository toolRepository, TagService tagService, ToolMapper toolMapper, TagMapper tagMapper) {
+        this.toolRepository = toolRepository;
+        this.tagService = tagService;
+        this.toolMapper = toolMapper;
+        this.tagMapper = tagMapper;
+    }
 
     public ToolDTO newTool (ToolDTO toolDTO) {
         linkIsValid(toolDTO.getLink());
