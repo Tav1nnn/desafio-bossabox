@@ -82,3 +82,6 @@ replay_pid*
 hs_err_pid*
 replay_pid*
 
+src/main/resources/env-dev.yml
+src/test/resources/env-test.yml
+

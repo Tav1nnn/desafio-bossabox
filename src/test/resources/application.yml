@@ -3,13 +3,16 @@ file:
 server:
   port: 8080
 spring:
+  config:
+    import:
+      ./env-test.yml
   flyway:
     enabled: false
   datasource:
     initialization-mode: never
     url: jdbc:postgresql://localhost:5420/desafiobossaboxtest
-    username: postgres
-    password: 123
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

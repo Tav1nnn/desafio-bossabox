@@ -1,11 +1,14 @@
 server:
   port: 3000
 spring:
+  config:
+    import:
+      ./env-dev.yml
   flyway:
     enabled: true
     baseline-on-migrate: true
-    user: postgres
-    password: 123
+    user: ${DB_USER}
+    password: ${DB_PASSWORD}
     baseline-description: "init"
     baseline-version: 0
   datasource:
