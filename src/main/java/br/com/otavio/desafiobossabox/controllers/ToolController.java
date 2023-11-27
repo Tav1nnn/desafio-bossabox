@@ -24,6 +24,8 @@ import java.util.List;
 public class ToolController {
     private final ToolService toolService;
 
+    String TESTE = "teste";
+
     public ToolController(ToolService toolService) {
         this.toolService = toolService;
     }
