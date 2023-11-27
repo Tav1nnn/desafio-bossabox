@@ -3,6 +3,9 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+src/main/resources/env-dev.yml
+src/test/resources/env-test.yml
+
 
 ### STS ###
 .apt_generated
@@ -81,7 +84,4 @@ replay_pid*
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-
-src/main/resources/env-dev.yml
-src/test/resources/env-test.yml
 
